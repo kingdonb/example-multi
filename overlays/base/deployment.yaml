@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: statsview
+  name: statsview
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: statsview
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: statsview
+    spec:
+      containers:
+      - image: ghcr.io/kingdonb/stats-tracker-ghcr:latest
+        name: stats-tracker-ghcr
